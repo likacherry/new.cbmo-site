@@ -502,3 +502,11 @@ html,body{min-width:320px!important;width:100%;margin:0}
  .m_menu .about-nav-panel{padding:0 0 8px 16px;border-radius:12px;background:#f2f7fb}
  .m_menu .about-nav-panel>a{display:block;font-size:14px;padding:10px 16px;white-space:normal}
 }
+/* Wide displays: full-width page surfaces, consistently centered content. */
+html,body{max-width:none!important;margin:0!important}
+header,.top,.kontakty,.map,footer{max-width:none!important}
+.map .map_rc #map{width:100%!important;max-width:100%!important;height:100%!important;left:0!important;right:auto!important;box-sizing:border-box}
+.revision-hero-controls{gap:16px}
+.revision-hero-controls #achievement-count{min-width:44px;text-align:center}
+@media(min-width:1600px){.container{max-width:1440px!important}header .top_menu{gap:22px}header .top_menu>a,header .about-nav-trigger{font-size:14px!important}.top.revision-hero-slider{height:540px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1440px)/2 + 24px))}}
+@media(min-width:2200px){.container{max-width:1600px!important}.top.revision-hero-slider{height:580px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1600px)/2 + 24px))}}

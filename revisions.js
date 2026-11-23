@@ -17,12 +17,9 @@ function showAchievement(i){
  hero.style.setProperty('--hero-photo',`url("/new.cbmo-site/assets/hero/${heroPhotos[slide]}.jpg")`);
  all('[data-hero-slide]').forEach(b=>b.setAttribute('aria-current',String(+b.dataset.heroSlide===slide)));
 }
-function resetHeroTimer(){clearInterval(heroTimer);heroTimer=null;if(hero&&!heroPaused&&!document.hidden)heroTimer=setInterval(()=>showAchievement(slide+1),15000)}
+function resetHeroTimer(){clearInterval(heroTimer);heroTimer=null;if(hero&&!heroPaused&&!document.hidden)heroTimer=setInterval(()=>showAchievement(slide+1),7000)}
 function manualHero(i){showAchievement(i);resetHeroTimer()}
 if(hero){
- const pause=document.createElement('button');pause.type='button';pause.className='hero-autoplay-toggle';
- const syncPause=()=>{pause.textContent=heroPaused?'▶':'Ⅱ';pause.setAttribute('aria-label',heroPaused?'Включить автоматическую смену слайдов':'Приостановить автоматическую смену слайдов');pause.setAttribute('aria-pressed',String(heroPaused))};
- pause.onclick=()=>{heroPaused=!heroPaused;syncPause();resetHeroTimer()};$('.revision-hero-controls').append(pause);syncPause();
  all('[data-achievement]').forEach(b=>b.onclick=()=>manualHero(slide+(b.dataset.achievement==='next'?1:-1)));
  all('[data-hero-slide]').forEach(b=>b.onclick=()=>manualHero(+b.dataset.heroSlide));
  hero.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();manualHero(slide+(e.key==='ArrowRight'?1:-1))}});
@@ -57,7 +54,7 @@ document.querySelectorAll('.about-nav-dropdown').forEach(menu=>{
  const step=()=>cards[1].offsetLeft-cards[0].offsetLeft;
  const visible=()=>Math.max(1,Math.round((viewport.clientWidth+(step()-cards[0].offsetWidth))/step()));
  const maximum=()=>Math.max(0,cards.length-visible());
- function sync(){index=Math.min(maximum(),Math.max(0,Math.round(viewport.scrollLeft/step())));prev.disabled=index===0;next.disabled=index===maximum();status.textContent=visible()===1?`Направление ${index+1} из ${cards.length}`:`Направления ${index+1}–${Math.min(cards.length,index+visible())} из ${cards.length}`;dots.forEach((b,i)=>{b.hidden=i>maximum();b.setAttribute('aria-current',String(i===index));b.setAttribute('aria-label',visible()===1?`Показать направление ${i+1}`:`Показать направления ${i+1}–${Math.min(cards.length,i+visible())}`)})}
+ function sync(){index=Math.min(maximum(),Math.max(0,Math.round(viewport.scrollLeft/step())));prev.disabled=index===0;next.disabled=index===maximum();dots.forEach((b,i)=>{b.hidden=i>maximum();b.setAttribute('aria-current',String(i===index));b.setAttribute('aria-label',visible()===1?`Показать направление ${i+1}`:`Показать направления ${i+1}–${Math.min(cards.length,i+visible())}`)})}
  function go(i){const target=Math.max(0,Math.min(maximum(),i));viewport.scrollTo({left:target*step(),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
  prev.onclick=()=>go(index-1);next.onclick=()=>go(index+1);dots.forEach(b=>b.onclick=()=>go(+b.dataset.activityIndex));
  viewport.addEventListener('scroll',sync,{passive:true});viewport.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();go(index+(e.key==='ArrowRight'?1:-1))}});
