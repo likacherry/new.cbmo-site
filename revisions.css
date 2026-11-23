@@ -510,3 +510,4 @@ header,.top,.kontakty,.map,footer{max-width:none!important}
 .revision-hero-controls #achievement-count{min-width:44px;text-align:center}
 @media(min-width:1600px){.container{max-width:1440px!important}header .top_menu{gap:22px}header .top_menu>a,header .about-nav-trigger{font-size:14px!important}.top.revision-hero-slider{height:540px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1440px)/2 + 24px))}}
 @media(min-width:2200px){.container{max-width:1600px!important}.top.revision-hero-slider{height:580px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1600px)/2 + 24px))}}
+.map .map_rc_inner{position:relative!important;left:0!important;top:0!important;width:100%!important;max-width:100%!important;height:100%!important;box-sizing:border-box}
