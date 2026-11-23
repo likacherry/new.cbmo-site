@@ -42,8 +42,8 @@ all('a[target="_blank"]').forEach(a=>a.rel='noopener');})();
 document.querySelectorAll('.about-nav-dropdown').forEach(menu=>{
  const trigger=menu.querySelector('button');
  const setOpen=open=>{menu.classList.toggle('is-open',open);trigger.setAttribute('aria-expanded',String(open))};
- menu.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')setOpen(true)});
- menu.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!menu.contains(document.activeElement))setOpen(false)});
+ menu.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse'&&window.matchMedia('(min-width: 992px)').matches)setOpen(true)});
+ menu.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&window.matchMedia('(min-width: 992px)').matches&&!menu.contains(document.activeElement))setOpen(false)});
  trigger.addEventListener('click',()=>setOpen(!menu.classList.contains('is-open')));
  menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget))setOpen(false)});
  menu.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();setOpen(false);trigger.focus()}if(e.key==='ArrowDown'&&e.target===trigger){e.preventDefault();setOpen(true);menu.querySelector('a').focus()}});
