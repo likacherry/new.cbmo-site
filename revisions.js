@@ -30,7 +30,7 @@ if(hero){
  hero.addEventListener('focusout',e=>{if(!hero.contains(e.relatedTarget))resetHeroTimer()});
  document.addEventListener('visibilitychange',resetHeroTimer);
  showAchievement(0);resetHeroTimer();
- heroPhotos.forEach(name=>{const image=new Image();image.src=`/assets/hero/${name}.jpg`});
+ heroPhotos.forEach(name=>{const image=new Image();image.src=`/new.cbmo-site/assets/hero/${name}.jpg`});
 }
 function search(input,update){let clear=input.parentElement.querySelector('.revision-clear');input.addEventListener('input',()=>{clear.hidden=!input.value;update(input.value)});clear.onclick=()=>{input.value='';clear.hidden=true;update('');input.focus()};update('')}
 const items=all('.map_item_map');let map=null,markers=[];
