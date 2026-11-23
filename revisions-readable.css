@@ -416,3 +416,76 @@ footer .foot_contacts>div{margin:0;min-width:0;line-height:1.5}
 
 .map>.container>.mflex2>.position-relative{min-width:0}
 @media(max-width:767px){.map>.container>.mflex2>.position-relative{order:1}.map>.container>.mflex2>.map_rc{order:0}}
+
+
+/* November responsive refinement: shared type, controls and safe layout. */
+:root{--site-radius:14px;--site-gutter:clamp(16px,3vw,40px)}
+body{font-family:Arial,sans-serif;line-height:1.6}
+h1,h2,h3,h4,.seo_name,.zam_item_name,.others_item_name{font-family:"Trebuchet MS",Arial,sans-serif;font-weight:700;line-height:1.3}
+.container{width:100%;max-width:1280px!important;padding-inline:var(--site-gutter);box-sizing:border-box}
+img,svg{max-width:100%}
+button,input,select,textarea{font:inherit}
+button,.btn,.revision-apply-button,.about-section-links>a,.to_top{border-radius:var(--site-radius)}
+input[type=submit],input[type=button],a.button,a.btn{border-radius:var(--site-radius)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #568dc6;outline-offset:4px}
+header>.container>.mflex2{gap:24px;min-height:112px;padding-block:16px}
+header .revision-brand-logo{width:260px;height:auto;max-width:100%}
+header .logo{flex:0 0 260px}
+header .top_menu{flex:1;justify-content:flex-end;gap:16px}
+header .top_menu>a,header .about-nav-trigger{font-size:calc(13px + 1pt)!important;white-space:nowrap}
+header .about-nav-panel{border-radius:14px;overflow:hidden;box-shadow:0 14px 36px #17375d1a}
+.top.revision-hero-slider{--hero-photo:url('/new.cbmo-site/assets/hero/office.jpg');height:500px!important;padding:40px 0 28px;position:relative;overflow:hidden;background-image:linear-gradient(90deg,#edf6fc 0%,#edf6fc 34%,#edf6fcf2 47%,#edf6fc30 74%,#edf6fc00 100%),var(--hero-photo)!important;background-position:center,right center!important;background-size:cover!important}
+.revision-hero-copy{max-width:640px!important}
+.revision-hero-eyebrow{font-size:calc(15px + 1pt);margin-bottom:18px}
+.revision-hero-slider h1{min-height:190px;gap:14px}
+#hero-number{font:700 clamp(62px,6vw,84px)/1 "Trebuchet MS",Arial,sans-serif;letter-spacing:-2px}
+#hero-label{font:700 clamp(24px,2.6vw,34px)/1.2 "Trebuchet MS",Arial,sans-serif;max-width:600px;text-transform:none}
+#hero-description{font-size:calc(16px + 1pt);line-height:1.6;max-width:530px;margin-top:16px}
+.revision-hero-controls{gap:14px;flex-wrap:nowrap;margin-top:20px}
+.revision-hero-controls>button{height:44px;width:44px;flex-shrink:0;border-radius:12px;background:#ffffffeb}
+.revision-hero-dots{gap:8px}
+.revision-hero-dots button{width:28px;height:44px;border-radius:8px}
+.revision-hero-dots button:after{top:20px;border-radius:4px}
+.revision-hero-controls .hero-autoplay-toggle{font-size:calc(18px + 1pt);margin-left:6px}
+.top_o_nas{background-image:linear-gradient(90deg,#e7f2fa 0%,#e7f2faf2 45%,#e7f2fa55 100%),url('/new.cbmo-site/assets/hero/office.jpg')!important;background-position:center!important;background-size:cover!important}
+.seo,.zam,.others,.docs,.info,.kontakty{position:relative;isolation:isolate}
+.seo,.zam,.others{overflow:clip}
+.seo .squares,.zam .squares,.others .squares,.info .squares{display:none}
+.seo:before,.zam:before,.others:before{content:'';position:absolute;right:max(16px,calc((100vw - 1280px)/2 + 24px));top:18px;width:80px;height:46px;background:radial-gradient(circle,#c7dbe9 2px,transparent 3px) 0 0/14px 14px;opacity:.6;z-index:-1;pointer-events:none}
+.seo>.container,.zam>.container,.others>.container{position:relative;z-index:1}
+.seo .seo_img img,.zam .revision-deputies .zam_item_img img,.others .others_item_img img{object-fit:cover;object-position:center top;border-radius:50%;box-shadow:0 0 0 5px #f2f7fb;image-rendering:auto}
+.seo .mflex4{gap:40px;grid-template-columns:180px minmax(0,760px)}
+.seo .seo_img{width:180px}.seo .seo_img img{width:180px;height:180px}
+.others .mflex6{gap:40px 30px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.others .others_item{grid-template-rows:150px auto minmax(58px,auto) minmax(64px,auto) auto 1fr auto}
+.others .others_item_img,.others .others_item_img img{width:150px;height:150px}
+.others_item_name{font-size:calc(20px + 1pt)!important}.others_item_dolzh{font-size:calc(15px + 1pt)!important}
+.leadership-education,.verified-bio{font-size:calc(15px + 1pt);line-height:1.65}
+.revision-apply-grid{gap:24px}
+.revision-apply-card{padding:28px;border-radius:20px}
+.revision-mail-symbol{width:86px;height:86px;min-width:86px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#e1eef5;color:#4564a5;font-size:0}
+.revision-mail-symbol svg{width:42px;height:42px}
+.revision-hh-logo{width:86px;height:86px;box-sizing:border-box}
+.revision-apply-card h3{margin-top:22px}
+.revision-apply-button{border-radius:14px;min-height:48px;box-sizing:border-box}
+.career-benefits-five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.career-benefit{border-radius:16px}
+.docs .container>.mflex4{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:36px;align-items:start}
+.docs .folder{position:static!important;inset:auto!important;width:150px;max-width:100%;height:auto;justify-self:center;align-self:start;margin-top:8px;pointer-events:none}
+.docs .docs_items{margin:0;width:100%;min-width:0}
+.revision-document-group>summary{padding-right:10px;gap:16px;line-height:1.5}
+.kontakty .container>.mflex4{grid-template-columns:minmax(0,1fr) 210px;align-items:center;gap:40px}
+.kontakty .kontakty_img{position:static!important;inset:auto!important;display:block!important;max-width:100%;width:180px;height:180px;object-fit:contain;align-self:center;justify-self:center;margin:0!important}
+.kontakty .docs_items{margin:0;width:100%}
+.features{padding-bottom:64px!important}
+.map{padding-bottom:64px!important}
+.directory-offices-panel{padding-bottom:16px}
+.directory-office-details:last-child{margin-bottom:0}
+footer{margin-top:0}
+footer .footer-identities{gap:32px;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center}
+footer .foot_contacts{gap:20px 28px}
+@media(max-width:1199px){header .logo{flex-basis:220px}header .revision-brand-logo{width:220px}header .top_menu{gap:10px}header .top_menu>a,header .about-nav-trigger{font-size:calc(11px + 1pt)!important}.revision-hero-copy{max-width:57%!important}.career-benefits-five{grid-template-columns:repeat(5,180px);overflow-x:auto}.others .mflex6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:991px){header>.container>.mflex2{min-height:92px;padding-block:12px}header .logo{flex-basis:210px}.m_menu_btn{width:32px;height:32px}.top.revision-hero-slider{height:510px!important}.revision-hero-copy{max-width:65%!important}#hero-label{font-size:calc(27px + 1pt)}.seo .mflex4{grid-template-columns:150px minmax(0,1fr);gap:28px}.seo .seo_img,.seo .seo_img img{width:150px;height:150px}.docs .container>.mflex4{grid-template-columns:minmax(0,1fr) 110px;gap:24px}.docs .folder{width:110px}.kontakty .container>.mflex4{grid-template-columns:minmax(0,1fr) 150px;gap:24px}.kontakty .kontakty_img{width:140px;height:140px}}
+@media(max-width:767px){.top.revision-hero-slider{height:660px!important;padding:28px 0 22px;background-image:linear-gradient(180deg,#edf6fc 0%,#edf6fc 45%,#edf6fccf 61%,#edf6fc35 100%),var(--hero-photo)!important;background-position:center,bottom center!important}.revision-hero-copy{max-width:100%!important}#hero-number{font-size:calc(64px + 1pt)}#hero-label{font-size:calc(27px + 1pt);max-width:540px}#hero-description{font-size:calc(15px + 1pt);max-width:500px}.revision-hero-slider h1{min-height:0}.revision-hero-controls{align-self:flex-start;background:#edf6fce8;padding:6px 8px;border-radius:16px;gap:8px}.revision-hero-controls>button{width:40px;height:40px}.revision-hero-dots{gap:5px}.revision-hero-dots button{width:22px;height:40px}.revision-hero-dots button:after{top:18px}.revision-hero-controls #achievement-count{font-size:calc(12px + 1pt)}.revision-apply-grid{grid-template-columns:minmax(0,1fr)}.docs .container>.mflex4{grid-template-columns:minmax(0,1fr);gap:0}.docs .folder{display:none}.kontakty .container>.mflex4{grid-template-columns:minmax(0,1fr);gap:24px}.kontakty .kontakty_img{width:128px;height:128px;justify-self:center;order:1}.others .mflex6{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}.others .others_item{grid-template-rows:128px auto minmax(54px,auto) minmax(64px,auto) auto 1fr auto}.others .others_item_img,.others .others_item_img img{width:128px;height:128px}.features,.map{padding-bottom:40px!important}footer .footer-identities{gap:24px}footer .footer-government{flex-direction:column;text-align:center;gap:12px}footer .footer-government span{font-size:calc(12px + 1pt)}footer .footer-government img{width:54px;height:68px}}
+@media(max-width:575px){header .logo{flex-basis:190px}header .revision-brand-logo{width:190px}header>.container>.mflex2{min-height:86px;gap:20px}.top.revision-hero-slider{height:650px!important}.revision-hero-eyebrow{font-size:calc(14px + 1pt)}#hero-number{font-size:calc(60px + 1pt)}#hero-label{font-size:calc(25px + 1pt);line-height:1.25}#hero-description{font-size:calc(15px + 1pt)}.revision-hero-controls{gap:6px;padding:6px}.revision-hero-controls>button{width:36px;height:40px}.revision-hero-dots button{width:18px}.revision-hero-controls .hero-autoplay-toggle{margin-left:0;width:34px}.seo .mflex4{grid-template-columns:minmax(0,1fr);gap:24px}.seo .seo_img{margin:0 auto}.seo_name{font-size:calc(25px + 1pt)!important}.zam .revision-deputies>.zam_item{grid-template-columns:88px minmax(0,1fr);gap:18px;padding:28px 0}.zam .revision-deputies .zam_item_img,.zam .revision-deputies .zam_item_img img{width:88px;height:88px}.zam .revision-deputies .zam_item_name{font-size:calc(20px + 1pt)}.zam .revision-deputies .zam_item_dolzh,.zam .revision-deputies .revision-bio{font-size:calc(14px + 1pt)}.leadership-education ul,.leadership-education-label{font-size:calc(14px + 1pt)}.others .mflex6{grid-template-columns:minmax(0,1fr)}.others .others_item{grid-template-rows:auto;max-width:440px}.others .others_item_img,.others .others_item_img img{width:144px;height:144px}.others_item_name{font-size:calc(22px + 1pt)!important}.revision-apply-card{padding:24px}.revision-hh-brand{font-size:calc(22px + 1pt)}.revision-apply-card p{font-size:calc(16px + 1pt)}.contacts-full-name{font-size:calc(18px + 1pt)}.contacts-hours{font-size:calc(15px + 1pt)}footer .footer-identities{grid-template-columns:minmax(0,1fr);gap:28px;text-align:center}footer .footer-government{flex-direction:row;justify-content:center;text-align:left}footer .footer-government span{font-size:calc(14px + 1pt);max-width:190px}footer .footer-ministry,footer .footer-cbmo{padding-top:0!important}footer .footer-ministry img{max-width:270px}footer .footer-cbmo img.revision-brand-footer{max-width:220px}footer .bot_menu{gap:12px 20px;justify-content:center}footer .foot_contacts{display:flex;flex-direction:column;gap:18px}footer .foot_contacts>.mflex{width:100%;justify-content:center;text-align:center}.authority-children>summary{grid-template-columns:minmax(0,1fr) 64px 24px;gap:8px;padding:16px 12px}.authority-title-name{font-size:calc(15px + 1pt)}.authority-count strong{font-size:calc(26px + 1pt)}.authority-own-office{font-size:calc(13px + 1pt)}.authority-list-caption{font-size:calc(12px + 1pt)}.directory-office-details>summary{padding:18px 14px;gap:10px}.directory-office-count{font-size:calc(13px + 1pt)}}
+@media(max-width:359px){.revision-hero-controls{gap:4px}.revision-hero-dots{gap:3px}.revision-hero-dots button{width:15px}.revision-hero-controls>button{width:32px}.zam .revision-deputies>.zam_item{grid-template-columns:minmax(0,1fr)}.zam .revision-deputies .zam_item_img{margin:0}}

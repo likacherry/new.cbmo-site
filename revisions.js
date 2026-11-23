@@ -7,9 +7,31 @@ const achievements=[
  {number:'1 350',label:'Сотрудников ЦБ МО',description:'Команда Централизованной бухгалтерии Московской области.'},
  {number:'15',label:'Управлений в Московской области',description:'Бухгалтерские подразделения ЦБ МО.'}
 ];let slide=0;
-function showAchievement(i){slide=(i+achievements.length)%achievements.length;const item=achievements[slide];$('#hero-number').textContent=item.number;$('#hero-label').textContent=item.label;$('#hero-description').textContent=item.description;$('#achievement-count').textContent=`${slide+1} / ${achievements.length}`;all('[data-hero-slide]').forEach(b=>b.setAttribute('aria-current',String(+b.dataset.heroSlide===slide)))}
-all('[data-achievement]').forEach(b=>b.onclick=()=>showAchievement(slide+(b.dataset.achievement==='next'?1:-1)));all('[data-hero-slide]').forEach(b=>b.onclick=()=>showAchievement(+b.dataset.heroSlide));
-const hero=$('.revision-hero-slider');if(hero)hero.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();showAchievement(slide+(e.key==='ArrowRight'?1:-1))}});
+const hero=$('.revision-hero-slider');
+const heroPhotos=['office','accounting','payroll','team','analytics'];
+let heroTimer=null,heroPaused=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function showAchievement(i){
+ slide=(i+achievements.length)%achievements.length;const item=achievements[slide];
+ $('#hero-number').textContent=item.number;$('#hero-label').textContent=item.label;
+ $('#hero-description').textContent=item.description;$('#achievement-count').textContent=`${slide+1} / ${achievements.length}`;
+ hero.style.setProperty('--hero-photo',`url("/new.cbmo-site/assets/hero/${heroPhotos[slide]}.jpg")`);
+ all('[data-hero-slide]').forEach(b=>b.setAttribute('aria-current',String(+b.dataset.heroSlide===slide)));
+}
+function resetHeroTimer(){clearInterval(heroTimer);heroTimer=null;if(hero&&!heroPaused&&!document.hidden)heroTimer=setInterval(()=>showAchievement(slide+1),15000)}
+function manualHero(i){showAchievement(i);resetHeroTimer()}
+if(hero){
+ const pause=document.createElement('button');pause.type='button';pause.className='hero-autoplay-toggle';
+ const syncPause=()=>{pause.textContent=heroPaused?'▶':'Ⅱ';pause.setAttribute('aria-label',heroPaused?'Включить автоматическую смену слайдов':'Приостановить автоматическую смену слайдов');pause.setAttribute('aria-pressed',String(heroPaused))};
+ pause.onclick=()=>{heroPaused=!heroPaused;syncPause();resetHeroTimer()};$('.revision-hero-controls').append(pause);syncPause();
+ all('[data-achievement]').forEach(b=>b.onclick=()=>manualHero(slide+(b.dataset.achievement==='next'?1:-1)));
+ all('[data-hero-slide]').forEach(b=>b.onclick=()=>manualHero(+b.dataset.heroSlide));
+ hero.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();manualHero(slide+(e.key==='ArrowRight'?1:-1))}});
+ hero.addEventListener('focusin',()=>clearInterval(heroTimer));
+ hero.addEventListener('focusout',e=>{if(!hero.contains(e.relatedTarget))resetHeroTimer()});
+ document.addEventListener('visibilitychange',resetHeroTimer);
+ showAchievement(0);resetHeroTimer();
+ heroPhotos.forEach(name=>{const image=new Image();image.src=`/assets/hero/${name}.jpg`});
+}
 function search(input,update){let clear=input.parentElement.querySelector('.revision-clear');input.addEventListener('input',()=>{clear.hidden=!input.value;update(input.value)});clear.onclick=()=>{input.value='';clear.hidden=true;update('');input.focus()};update('')}
 const items=all('.map_item_map');let map=null,markers=[];
 if(items.length){
