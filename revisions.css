@@ -577,3 +577,8 @@ header,.top,.kontakty,.map,footer{max-width:none!important}
  .directory-office-details>summary{grid-template-columns:minmax(0,1fr) 60px 20px!important;gap:8px}
  .directory-office-details>summary .directory-office-count{width:60px;font-size:12px}
 }
+/* Homepage retains CIO grouping; its numeric column is aligned independently of title length. */
+.directory-office-authority>summary{display:grid!important;grid-template-columns:minmax(0,1fr) 76px 22px!important;align-items:center;gap:14px}
+.directory-office-authority>summary small{width:76px;justify-self:end;text-align:right;white-space:nowrap;font-size:13px;margin:0!important}
+.directory-office-authority>summary:after{position:static!important;justify-self:center;margin:0!important}
+@media(max-width:767px){.directory-office-authority>summary{grid-template-columns:minmax(0,1fr) 48px 20px!important;gap:8px}.directory-office-authority>summary small{width:48px;font-size:12px}}
