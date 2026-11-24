@@ -50,13 +50,21 @@ document.querySelectorAll('.about-nav-dropdown').forEach(menu=>{
 (()=>{
  const viewport=document.querySelector('.activity-viewport');if(!viewport)return;
  const cards=Array.from(viewport.querySelectorAll('.activity-card')),prev=document.querySelector('.activity-prev'),next=document.querySelector('.activity-next'),dots=Array.from(document.querySelectorAll('[data-activity-index]')),status=document.querySelector('.activity-status');
- let index=0;
+ let index=0,activityTimer=null;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function resetActivityTimer(){clearInterval(activityTimer);if(!reduced&&!document.hidden)activityTimer=setInterval(()=>go(index>=maximum()?0:index+1),7000)}
  const step=()=>cards[1].offsetLeft-cards[0].offsetLeft;
  const visible=()=>Math.max(1,Math.round((viewport.clientWidth+(step()-cards[0].offsetWidth))/step()));
  const maximum=()=>Math.max(0,cards.length-visible());
  function sync(){index=Math.min(maximum(),Math.max(0,Math.round(viewport.scrollLeft/step())));prev.disabled=index===0;next.disabled=index===maximum();dots.forEach((b,i)=>{b.hidden=i>maximum();b.setAttribute('aria-current',String(i===index));b.setAttribute('aria-label',visible()===1?`Показать направление ${i+1}`:`Показать направления ${i+1}–${Math.min(cards.length,i+visible())}`)})}
  function go(i){const target=Math.max(0,Math.min(maximum(),i));viewport.scrollTo({left:target*step(),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
- prev.onclick=()=>go(index-1);next.onclick=()=>go(index+1);dots.forEach(b=>b.onclick=()=>go(+b.dataset.activityIndex));
+ prev.onclick=()=>{go(index-1);resetActivityTimer()};next.onclick=()=>{go(index+1);resetActivityTimer()};dots.forEach(b=>b.onclick=()=>{go(+b.dataset.activityIndex);resetActivityTimer()});
+ viewport.addEventListener('focusin',()=>clearInterval(activityTimer));
+ viewport.addEventListener('focusout',e=>{if(!viewport.contains(e.relatedTarget))resetActivityTimer()});
+ viewport.addEventListener('pointerdown',()=>clearInterval(activityTimer));
+ viewport.addEventListener('pointerup',resetActivityTimer);
+ viewport.addEventListener('pointercancel',resetActivityTimer);
+ document.addEventListener('visibilitychange',resetActivityTimer);
  viewport.addEventListener('scroll',sync,{passive:true});viewport.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();go(index+(e.key==='ArrowRight'?1:-1))}});
- new ResizeObserver(sync).observe(viewport);sync();
+ new ResizeObserver(sync).observe(viewport);sync();resetActivityTimer();
 })();

@@ -511,3 +511,69 @@ header,.top,.kontakty,.map,footer{max-width:none!important}
 @media(min-width:1600px){.container{max-width:1440px!important}header .top_menu{gap:22px}header .top_menu>a,header .about-nav-trigger{font-size:14px!important}.top.revision-hero-slider{height:540px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1440px)/2 + 24px))}}
 @media(min-width:2200px){.container{max-width:1600px!important}.top.revision-hero-slider{height:580px!important}.seo:before,.zam:before,.others:before{right:max(24px,calc((100vw - 1600px)/2 + 24px))}}
 .map .map_rc_inner{position:relative!important;left:0!important;top:0!important;width:100%!important;max-width:100%!important;height:100%!important;box-sizing:border-box}
+/* Compact leadership, one-level office lists and stable mobile layouts, 24.11.2026. */
+.leadership-facts{width:100%;border-top:1px solid #d8e2ed;border-bottom:1px solid #d8e2ed;padding:12px 0;margin:12px 0;font-size:14px;line-height:1.6;text-align:left;box-sizing:border-box}
+.leadership-facts p{margin:0!important;font-size:inherit!important;line-height:inherit!important}
+.leadership-facts p+p{margin-top:6px!important}
+.seo_name{font-size:24px!important;margin-bottom:8px!important}
+.seo_dolzh{font-size:16px!important;line-height:1.45!important;margin:0!important}
+.zam .revision-deputies>.zam_item{padding:20px 0;gap:22px}
+.zam .revision-deputies .zam_item_name{font-size:19px!important;margin:0 0 6px!important}
+.zam .revision-deputies .zam_item_dolzh{font-size:14px!important;line-height:1.5;margin:0!important}
+.leadership-directions{margin-top:12px!important;padding:0!important}
+.leadership-directions>summary{font-size:16px!important;font-weight:700!important}
+.leadership-directions>ul{margin:10px 0 0!important;font-size:14px!important;line-height:1.6}
+.others .mflex6{align-items:stretch;gap:22px}
+.others .others_item{display:flex;flex-direction:column;gap:8px;padding:22px;box-sizing:border-box;background:rgba(225,238,245,.48);border:1px solid rgba(86,141,198,.14);border-radius:18px;text-align:center;min-height:0;grid-template-rows:none}
+.others .others_item_img,.others .others_item_img img{width:132px;height:132px}
+.others .others_item_name{font-size:19px!important;line-height:1.35;min-height:0;margin:0!important}
+.others .others_item_dolzh{font-size:14px!important;line-height:1.5;min-height:0;margin:0!important}
+.others .others_item_contacts{font-size:13px!important;margin:0!important}
+.others .leadership-city{font-size:16px!important;margin:0!important;font-weight:700}
+.others .leadership-facts{margin:6px 0 0;font-size:13px}
+.directory-office-details>summary{display:grid!important;grid-template-columns:minmax(0,1fr) 76px 22px!important;align-items:center;gap:14px}
+.directory-office-details>summary .directory-office-count{width:76px;text-align:right;white-space:nowrap;margin:0!important;justify-self:end}
+.directory-office-details>summary:after{justify-self:center;margin:0!important;position:static!important}
+.directory-flat-institutions{margin:12px 0 0!important;padding:0!important;list-style:none!important}
+.directory-flat-institutions>li{display:flex;gap:12px;align-items:baseline;justify-content:space-between;padding:12px 0;line-height:1.55;border-bottom:1px solid #d8e2ed;overflow-wrap:anywhere}
+.directory-flat-institutions>li:last-child{border-bottom:0}
+.directory-flat-institutions small{flex-shrink:0;color:#66819b}
+.kontakty .container>.mflex4{grid-template-columns:minmax(0,1.4fr) minmax(240px,1fr) 160px;gap:36px;align-items:center}
+.kontakty .contacts-hours{margin:0!important;align-self:center;font-size:14px;line-height:1.65}
+.kontakty .contacts-hours p{margin:10px 0 0!important;font-size:inherit;line-height:inherit}
+.kontakty .kontakty_img{align-self:center;justify-self:center;width:150px;height:170px;object-fit:contain;margin:0!important}
+.career-benefits-five{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;overflow:visible!important;width:100%;max-width:100%;box-sizing:border-box}
+.career-benefits-five .career-benefit{width:auto!important;min-width:0!important;max-width:100%;grid-column:auto!important;padding:22px 16px;box-sizing:border-box;white-space:normal!important}
+.career-benefits-five .career-benefit h3{font-size:16px;line-height:1.4}
+.career-benefits-five .career-benefit p{font-size:13px;line-height:1.55;white-space:normal!important;overflow-wrap:anywhere;width:auto!important}
+.totop{display:grid!important;place-items:center!important;padding:0!important;line-height:1!important;border:1px solid #d1dce9!important;background:#fff!important;color:#4564a5!important;box-shadow:0 3px 12px #243e621a;opacity:1!important}
+.totop svg{display:block;width:20px;height:20px;pointer-events:none}
+.totop.hidden{display:none!important}
+@media(max-width:991px){
+ header,header.hfixed{position:fixed!important;top:0!important;left:0!important;width:100%!important;margin-top:0!important;transform:none!important;z-index:2000!important}
+ header .m_menu_btn,header.hfixed .m_menu_btn{display:block!important;visibility:visible!important;opacity:1!important}
+ .kontakty .container>.mflex4{grid-template-columns:minmax(0,1fr) minmax(200px,.85fr);gap:24px}
+ .kontakty .kontakty_img{display:none}
+ .career-benefits-five{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:767px){
+ .activity-track{grid-auto-columns:calc((100% - 12px)/2)!important;gap:12px!important}
+ .activity-card{padding:16px 13px!important;min-height:300px!important;height:auto!important;box-sizing:border-box}
+ .activity-card-top{gap:8px;min-height:0!important;align-items:flex-start}
+ .activity-card h3{font-size:15px!important;line-height:1.35!important;overflow-wrap:anywhere}
+ .activity-card svg{width:24px!important;height:24px!important;flex-shrink:0}
+ .activity-card p,.activity-card li{font-size:12px!important;line-height:1.5!important}
+ .activity-card ul{padding-left:16px!important;margin-top:14px!important}
+ .activity-card-top+p{margin-top:20px!important}
+ .career-benefits-five .career-benefit{padding:18px 12px!important}
+ .career-benefits-five .career-benefit h3{font-size:15px!important}
+ .career-benefits-five .career-benefit p{font-size:12px!important}
+ .kontakty .container>.mflex4{grid-template-columns:minmax(0,1fr);gap:20px}
+ .kontakty .contacts-hours{justify-self:start}
+ .others .others_item{padding:20px;gap:7px}
+ .seo_name{font-size:22px!important}
+ .zam .revision-deputies .zam_item_name,.others .others_item_name{font-size:18px!important}
+ .leadership-facts{font-size:13px;padding:10px 0}
+ .directory-office-details>summary{grid-template-columns:minmax(0,1fr) 60px 20px!important;gap:8px}
+ .directory-office-details>summary .directory-office-count{width:60px;font-size:12px}
+}
