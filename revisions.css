@@ -582,3 +582,11 @@ header,.top,.kontakty,.map,footer{max-width:none!important}
 .directory-office-authority>summary small{width:76px;justify-self:end;text-align:right;white-space:nowrap;font-size:13px;margin:0!important}
 .directory-office-authority>summary:after{position:static!important;justify-self:center;margin:0!important}
 @media(max-width:767px){.directory-office-authority>summary{grid-template-columns:minmax(0,1fr) 48px 20px!important;gap:8px}.directory-office-authority>summary small{width:48px;font-size:12px}}
+/* Restore the original site's Jost family, retaining the requested emphasis. */
+html,body,button,input,select,textarea,h1,h2,h3,h4,h5,h6,.seo_name,.zam_item_name,.others_item_name,header nav,header .about-nav-trigger{font-family:Jost,Arial,sans-serif!important}
+.info:has(.career-benefits-five) h2,.top:has(+.revision-career-apply) h1,.revision-career-apply h2{font-weight:700!important}
+body:has(.career-benefits-five) h1,body:has(.career-benefits-five) h2.fz_title{font-weight:700!important}
+.others .others_item,.others .leadership-city,.others .others_item_name,.others .others_item_dolzh,.others .others_item_contacts,.others .leadership-facts,.others .leadership-facts p{text-align:center!important;align-items:center}
+.authority-unassigned{margin-top:24px;padding:22px;border:1px solid #d8e2ed;border-radius:14px;background:white}
+.authority-unassigned h3{font-size:18px;font-weight:600;margin:0 0 12px}
+.authority-unassigned ul{list-style:none;padding:0;margin:0}
