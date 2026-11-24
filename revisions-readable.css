@@ -591,3 +591,5 @@ body:has(.career-benefits-five) h1,body:has(.career-benefits-five) h2.fz_title{f
 .authority-unassigned{margin-top:24px;padding:22px;border:1px solid #d8e2ed;border-radius:14px;background:white}
 .authority-unassigned h3{font-size:calc(18px + 1pt);font-weight:600;margin:0 0 12px}
 .authority-unassigned ul{list-style:none;padding:0;margin:0}
+/* Legacy align-self:start must not pull city and role to the left of the centered portrait. */
+.others .others_item>.leadership-city,.others .others_item>.others_item_name,.others .others_item>.others_item_dolzh,.others .others_item>.others_item_contacts{align-self:stretch!important;width:100%!important;box-sizing:border-box;text-align:center!important}
